@@ -17,26 +17,44 @@ public class Peamurdja2_ristmik extends Application {
         Foor foorVASAK = new Foor(Foor.VASAK, primaryStage);
         Foor foorParem = new Foor(Foor.PAREM, primaryStage);
 
-        foorYlemine.vahetaPunast();
-        foorAlumine.vahetaPunast();
-        foorVASAK.vahetaRohelist();
-        foorParem.vahetaRohelist();
-        foorYlemine.paus(2);
-        foorAlumine.paus(2);
-        foorVASAK.paus(2);
-        foorParem.paus(2);
-        foorVASAK.vahetaRohelist();
-        foorParem.vahetaRohelist();
-        foorYlemine.vahetaKollast();
-        foorAlumine.vahetaKollast();
-        foorVASAK.vahetaKollast();
-        foorParem.vahetaKollast();
-        foorYlemine.paus(0.5);
-        foorAlumine.paus(0.5);
-        foorVASAK.paus(0.5);
-        foorParem.paus(0.5);
+        for (int i = 0; i < 10; i++) {
 
 
+            tsykkel1(foorVASAK);
+            tsykkel1(foorParem);
+            tsykkel2(foorYlemine);
+            tsykkel2(foorAlumine);
 
+            tsykkel2(foorVASAK);
+            tsykkel2(foorParem);
+            tsykkel1(foorYlemine);
+            tsykkel1(foorAlumine);
+        }
+
+    }
+    public void tsykkel1(Foor foor) {
+        foor.vahetaPunast();
+        foor.paus(3);
+        foor.vahetaKollast();
+        foor.paus(0.5);
+        foor.vahetaPunast();
+        foor.vahetaKollast();
+    }
+    public void tsykkel2(Foor foor) {
+        foor.vahetaRohelist();
+        foor.paus(3);
+        foor.vahetaRohelist();
+        foor.paus(0.5);
+        foor.vahetaRohelist();
+        foor.paus(0.5);
+        foor.vahetaRohelist();
+        foor.paus(0.5);
+        foor.vahetaRohelist();
+        foor.paus(0.5);
+        foor.vahetaRohelist();
+        foor.paus(0.5);
+        foor.vahetaKollast();
+        foor.paus(1);
+        foor.vahetaKollast();
     }
 }
