@@ -1,5 +1,9 @@
 package teema1;
 
+import jdk.nashorn.internal.ir.IfNode;
+
+import java.util.Scanner;
+
 /**
  * Juhuslikkus
  *
@@ -21,6 +25,18 @@ package teema1;
  */
 public class Harjutus3_Juhuslikkus {
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ütle kull(1) või kiri (2)?");
+
+        int guess = sc.nextInt();
+
+        int result = (int) (Math.random() * 2 + 1);
+
+
+        if (guess == result) System.out.println("pihtas, õige oli " + result);
+        else System.out.println("Põhjas, õige oli " + result);
 
     }
 }
