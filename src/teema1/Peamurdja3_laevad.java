@@ -16,4 +16,79 @@ import java.util.Scanner;
  *    nii vertikaalselt kui ka horisontaalselt?
  */
 public class Peamurdja3_laevad {
+
+    static int[][] board;
+    static int[][] guesses;
+    static int height = 4;
+    static int width = 4;
+    static boolean gameOver = false;
+    static int strikeX;
+    static int strikeY;
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        board = initiateBoard(board);
+        guesses = initiateBoard(guesses);
+
+        fillBoard(board);
+
+        while(!gameOver){
+
+            pritnBoard(board);
+
+            System.out.println();
+
+            System.out.println("Sisesta x ja y koordinaadid (tühik vahele): ");
+
+            String userInput = sc.nextLine();
+
+            String[] xy = userInput.split(" ");
+
+            System.out.println(xy[0]);
+
+            strikeX = Integer.parseInt(xy[0]);
+            strikeY = Integer.parseInt(xy[1]);
+
+            evaluateStrike(strikeX, strikeY);
+
+
+
+            pritnBoard(guesses);
+
+            gameOver = true;
+        }
+
+    }
+
+    public static int[][] initiateBoard(int[][] board){
+        board = new int[height][width];
+        return board;
+    }
+
+    public static int[][] fillBoard(int[][] inputBoard){
+        System.out.println("test");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                inputBoard[i][j] = (int) (Math.random() * 0.7);
+            }
+        }
+        return inputBoard;
+    }
+
+    public static void pritnBoard(int[][] board) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void evaluateStrike(int x, int y) {
+
+        if (board[y-1][x-1] == 0){
+            guesses[y-1][x-1] = 8;
+        }
+    }
+
 }
